@@ -1,0 +1,32 @@
+Conclusion:
+The best hospitals are, in descending order:
+
+FLORIDA HOSPITAL, 5.9617662936424445
+CHILDRENS HOSPITAL COLORADO, 4.8543788392896685
+UPMC PRESBYTERIAN SHADYSIDE, 3.9898743791399149
+ROCHESTER GENERAL HOSPITAL, 3.2696985113937198
+CHILDRENS HOSPITAL OF PHILADELPHIA, 3.2185442034465246
+BAPTIST MEDICAL CENTER, 3.1127023221261392
+MOSES H CONE MEMORIAL HOSPITAL, THE, 2.9419225132101436
+GREATER BALTIMORE MEDICAL CENTER, 2.8839944241827284
+MEMORIAL HERMANN HOSPITAL SYSTEM, 2.8534787007488003
+NOVANT HEALTH FORSYTH MEDICAL CENTER, 2.7164453115492901
+
+Approach:
+First, I concatenated the effective care and readmissions data, normalizing the scheams, 
+and removing any rows with missing data. I also dropped any rows with non-numeric data
+Then I calculated the mean and standard deviation for each individual measure across 
+the population. From there, I was able to calculate the z-score of each hospital test 
+results. To determine the overall quality of care, I averaged the z-scores of each 
+hospital. Note that this methodology introduces a non-linearity as a result of using 
+the standard deviation (a z-score of 2 is harder to come by than a z-score of 1 and a 
+z-score of 0), and assumes a normal distribution. 
+
+The data above are the hospital name and the averaged z-score
+
+Using the averaged z-score by hospital helps to account for large differences in the 
+scales of the data, and also not knowing the true min and maxes of the various measures.
+A z-score is standardized by the standard deviation. The effect of the non-linearity
+may be viewed as a positive depending on what "best" means. In this case, the 
+non-linearity suppresses the effect of outliers in either direction, helping to 
+point towards a consistent, holistic picture.

@@ -1,0 +1,24 @@
+Conclusion:
+
+The most variable procedures are: 
+Median Time from ED Arrival to Provider Contact for ED patients, 42.959657984482533
+Median Time from ED Arrival to ED Departure for Discharged ED Patients, 41.837335270294368
+Patient left without being seen, 32.587283760785944
+Venous Thromboembolism Prophylaxis, 26.095915930929362
+Influenza Immunization, 23.021696694462388
+Intensive Care Unit Venous Thromboembolism Prophylaxis, 21.194988495710984
+Median Time from ED Arrival to ED Departure for Admitted ED Patients, 20.842415712487913
+Admit Decision Time to ED Departure Time for Admitted Patients, 20.79270079875581
+
+
+Approach:
+First, I concatenated the effective care and readmissions data, normalizing the scheams, 
+and removing any rows with missing data. I also dropped any rows with non-numeric data
+Then I calculated the mean and standard deviation for each individual measure across 
+the population. From there, I was able to calculate the z-score of each hospital test 
+results. Z-scores are a measure of standardized variability, so I was able to use them 
+to assess where variability was the greatest across scores with different scales
+and unknown true mins and maxes. High variability measures could have either very high
+or very-low z-scores, so I took the absolute value of the z-score, then looked for the highest.
+
+The data above are the metric name along with the highest z-score

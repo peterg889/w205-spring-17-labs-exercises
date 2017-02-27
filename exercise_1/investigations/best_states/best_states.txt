@@ -1,0 +1,32 @@
+Conclusion:
+The best states are, in descending order:
+
+MD, 12.346629253290699
+NJ, 10.983587620569436
+DE, 9.9798223334244245
+FL, 9.62527462832041
+NC, 8.7657799271543677
+PA, 8.3207577419999481
+MP, 8.0646949149504845
+GU, 6.2675299051974429
+DC, 6.1882337123634787
+NY, 5.9824727898525758
+
+Approach:
+First, I concatenated the effective care and readmissions data, normalizing the scheams, 
+and removing any rows with missing data. I also dropped any rows with non-numeric data
+Then I calculated the mean and standard deviation for each individual measure across 
+the population. From there, I was able to calculate the z-score of each hospital test 
+results. To determine the overall quality of care by state, I grouped the test results
+by state, then averaged the z-scores. Note that this methodology introduces a 
+non-linearity as a result of using  the standard deviation (a z-score of 2 is harder to 
+come by than a z-score of 1 and a  z-score of 0), and assumes a normal distribution. 
+
+The data above are the state name and the averaged z-score
+
+Using the averaged z-score by state helps to account for large differences in the 
+scales of the data, and also not knowing the true min and maxes of the various measures.
+A z-score is standardized by the standard deviation. The effect of the non-linearity
+may be viewed as a positive depending on what "best" means. In this case, the 
+non-linearity suppresses the effect of outliers in either direction, helping to 
+point towards a consistent, holistic picture.

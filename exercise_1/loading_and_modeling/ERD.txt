@@ -1,0 +1,8 @@
+Hospitals
+ProviderID, Name, State
+
+Procedures
+MeasureID, ProviderID, Name, Score
+
+Survey
+ProviderID, TotalScore

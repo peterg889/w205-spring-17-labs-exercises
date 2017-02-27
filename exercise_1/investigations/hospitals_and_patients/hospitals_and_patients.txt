@@ -1,0 +1,23 @@
+Conclusion:
+The correlation between hospitals quality of care and patients is -0.162779981734. 
+Therefore they are not correlated
+
+Approach
+First, I concatenated the effective care and readmissions data, normalizing the scheams, 
+and removing any rows with missing data. I also dropped any rows with non-numeric data
+Then I calculated the mean and standard deviation for each individual measure across 
+the population. From there, I was able to calculate the z-score of each hospital test 
+results. To determine the overall quality of care, I averaged the z-scores of each 
+hospital. Note that this methodology introduces a non-linearity as a result of using 
+the standard deviation (a z-score of 2 is harder to come by than a z-score of 1 and a 
+z-score of 0), and assumes a normal distribution. 
+
+To determine the overall survey result, I added HCAHPS Base Score and HCAHPS Consistency 
+Score, based on information found in 
+https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/hospital-value-based-purchasing/downloads/HospVBP_ODF_072711.pdf
+
+I then created data frame of (hospital QOC, total score) and calculated the correlation,
+resulting in the number above.
+
+NB -- the methodology proposed by CMS takes the higher of a consistency score and an 
+improvement score for when determining the overall score, which may mask some effects.
